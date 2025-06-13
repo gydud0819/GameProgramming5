@@ -127,45 +127,47 @@ int main()
 		{
 			monsters.emplace_back(sx, sy, path);		// emplace_back 사용시 생성자로 값을 넣을 수 있음 
 		}
+
+		//direction 숫자를 받아와서 GotoXY의 좌표 변경하기
+		for (int i = 0; i < monsters.size(); i++)
+		{
+			Monster& monster = monsters[i];
+
+			if (monster.step >= monster.direction.size())
+			{
+				continue;
+			}
+
+			GotoXY(monster.pre_x, monster.pre_y);	// 움직이는 잔상을
+			cout << "  ";							// "  "로 지우라는 의미
+
+			int dir = monster.direction[monster.step];
+			monster.x += dx[dir];		// 아래로 이동하는 x
+			monster.y += dy[dir];
+
+			monster.pre_x = monster.x;
+			monster.pre_y = monster.y;
+
+			GotoXY(sx, sy);
+			cout << "★";
+
+			//pre_x, pre_y: 이전 위치 값 저장하고 이전 위치를 빈 공간에다 다시 그리기
+			//cout<<"  "<<;
+
+			Sleep(500);
+		}
 	}
 	
 
-	GotoXY(sx, sy);
+	/*GotoXY(sx, sy);
 
-	cout << "★";
+	cout << "★";*/
 
 	int pre_x = sx;		// 잔상 해결하는 변수
 	int pre_y = sy;
 
 
-	//direction 숫자를 받아와서 GotoXY의 좌표 변경하기
-	for (int i = 0; i < monsters.size(); i++)
-	{
-		Monster& monster = monsters[i];
-
-		if (monster.step >= monster.direction.size())
-		{
-			continue;
-		}
-
-		GotoXY(monster.pre_x, monster.pre_y);	// 움직이는 잔상을
-		cout << "  ";							// "  "로 지우라는 의미
-
-		int dir = monster.direction[monster.step];
-		monster.x += dx[dir];		// 아래로 이동하는 x
-		monster.y += dy[dir];
-
-		monster.pre_x = monster.x;
-		monster.pre_y = monster.y;
-
-		GotoXY(sx, sy);
-		cout << "★";
-
-		//pre_x, pre_y: 이전 위치 값 저장하고 이전 위치를 빈 공간에다 다시 그리기
-		//cout<<"  "<<;
-
-		Sleep(500);
-	}
+	
 
 #pragma endregion
 
