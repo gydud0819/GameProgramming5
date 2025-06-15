@@ -59,7 +59,7 @@ int main()
 {
 	for (int j = 0; j < SIZE; j++)
 	{
-		for (int i = 0; i < SIZE;i++)
+		for (int i = 0; i < SIZE; i++)
 		{
 
 			if (maze[j][i] == 1)
@@ -117,8 +117,9 @@ int main()
 	vector<int> path = { 1,1,1,3,1,3,3,1,3,3,3,3,3 };		// 밑으로 
 	int monster_count = 5;	// 전체 몬스터 총 개수
 	int interval = 2;		// 몬스터 생성 주기
-	int steps = path.size() + monster_count;	// 전체 몬스터의 이동 거리
+	int steps = path.size() + monster_count + interval;	// 전체 몬스터의 이동 거리
 	int sx = 2; int sy = 0;
+
 	vector<Monster> monsters;
 
 	for (int i = 0; i < steps; i++)
@@ -144,17 +145,17 @@ int main()
 			int dir = monster.direction[monster.step];
 			monster.x += dx[dir];		// 아래로 이동하는 x
 			monster.y += dy[dir];
-
 			monster.pre_x = monster.x;
 			monster.pre_y = monster.y;
-
-			GotoXY(sx, sy);
+			monster.step++;
+			GotoXY(monster.x, monster.y);
 			cout << "★";
+			Sleep(500);
+
 
 			//pre_x, pre_y: 이전 위치 값 저장하고 이전 위치를 빈 공간에다 다시 그리기
 			//cout<<"  "<<;
 
-			Sleep(500);
 		}
 	}
 	
@@ -163,8 +164,8 @@ int main()
 
 	cout << "★";*/
 
-	int pre_x = sx;		// 잔상 해결하는 변수
-	int pre_y = sy;
+	//int pre_x = sx;		// 잔상 해결하는 변수
+	//int pre_y = sy;
 
 
 	
