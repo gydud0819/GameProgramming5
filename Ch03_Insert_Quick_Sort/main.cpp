@@ -126,43 +126,54 @@ void QuickSort(int data[], int start, int end)		// 재귀함수로 구현. 시작과 끝을 
 
 	while (i <= j)			// 왼쪽 인덱스를 오른쪽 인덱스가 추월했을 때까지 반복한다.
 	{
-		while (data[i] <= data[pivot]) // 피봇보다 큰 값을 만날 때 (i의 값을 변경해주는 코드), (작을때 i를 계속 증가하라는 의미)
+		while (i <= end && data[i] <= data[pivot]) // 피봇보다 큰 값을 만날 때 (i의 값을 변경해주는 코드), (작을때 i를 계속 증가하라는 의미)
 		{
 			i++;
 		}
 
-		while (j < start && data[j] >= data[pivot]) // 피봇보다 작은 값을 만날 때 (j의 값을 변경해주는 코드) (클때 i를 감소하라는 의미) j는 start보다 값이 커야한다.
+		while (j > start && data[j] >= data[pivot]) // 피봇보다 작은 값을 만날 때 (j의 값을 변경해주는 코드) (클때 i를 감소하라는 의미) j는 start보다 값이 커야한다.
 		{
 			j--;
 		}
 		
 		// i > j // 왼쪽 값이 오른쪽 값보다 크면 엇갈렸다.
-		if (i < j)	// 엇갈리면 
+		if (i <= j)	// 엇갈리면 
 		{
 			/*temp = data[j];
 			data[j] = data[pivot];
 			data[pivot] = temp;*/
-
-			swap(data[j], data[pivot]);;
+			temp = data[i];
+			data[i] = data[j];
+			data[j] = temp;
+			/*temp = data[pivot];
+			data[pivot] = data[j];
+			data[j] = temp;*/
+			i++;
+			j--;
+			//swap(data[j], data[pivot]);;
 		}
 		// 엇갈리지 않을 때 (j와 i를 변경)
-		else
-		{
-			/*temp = data[j];
-			data[j] = data[i];
-			data[i] = temp;*/
+		//else
+		//{
+		//	temp = data[j];
+		//	data[j] = data[i];
+		//	data[i] = temp;
 
-			swap(data[i], data[j]);;
-		}
+		//	//swap(data[i], data[j]);;
+		//}
 
-		// 재귀 함수
-
-		// QuickSort(왼쪽 파트) QuickSort(오른쪽 파트)
-
-		QuickSort(data, start, j - 1);	// 왼쪽
-		QuickSort(data, i + 1, end);	// 오른쪽
+		
 		
 	}
+	temp = data[pivot];
+	data[pivot] = data[j];
+	data[j] = temp;
+	// 재귀 함수
+
+	// QuickSort(왼쪽 파트) QuickSort(오른쪽 파트)
+
+	QuickSort(data, start, j - 1);	// 왼쪽
+	QuickSort(data, j + 1, end);	// 오른쪽
 }
 
 void QuickSort(vector<int>& nums, int start, int end)
