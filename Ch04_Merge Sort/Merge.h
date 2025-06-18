@@ -105,7 +105,7 @@ void MergeSort(int arr[], int n, int left, int right)
 	}
 }
 
-void Merge()	// 벡터로 어케 구현해야하지 
+void Merge(vector<int> nums, int n, int left, int right)	// 벡터로 어케 구현해야하지 
 {
 
 }

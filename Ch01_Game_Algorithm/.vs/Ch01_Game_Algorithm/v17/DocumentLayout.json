@@ -3,10 +3,7 @@
   "WorkspaceRootPath": "C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch01_Game_Algorithm\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E3688CA7-12A5-4FFF-9A44-55A97091B713}|..\\Ch04_Merge Sort\\Ch04_Merge Sort.vcxproj|C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch04_Merge Sort\\Merge.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E3688CA7-12A5-4FFF-9A44-55A97091B713}|..\\Ch04_Merge Sort\\Ch04_Merge Sort.vcxproj|C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch04_Merge Sort\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{C59122F1-EAD1-41BE-887E-B5D654AD8F9C}|..\\Ch05_Sort_Search\\Ch05_Sort_Search.vcxproj|C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch05_Sort_Search\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -21,27 +18,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Merge.h",
-              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch04_Merge Sort\\Merge.h",
-              "RelativeDocumentMoniker": "..\\Ch04_Merge Sort\\Merge.h",
-              "ToolTip": "C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch04_Merge Sort\\Merge.h",
-              "RelativeToolTip": "..\\Ch04_Merge Sort\\Merge.h",
-              "ViewState": "AgIAAFIAAAAAAAAAAAAAAG8AAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-06-17T08:22:58.678Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "main.cpp",
-              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch04_Merge Sort\\main.cpp",
-              "RelativeDocumentMoniker": "..\\Ch04_Merge Sort\\main.cpp",
-              "ToolTip": "C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch04_Merge Sort\\main.cpp",
-              "RelativeToolTip": "..\\Ch04_Merge Sort\\main.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch05_Sort_Search\\main.cpp",
+              "RelativeDocumentMoniker": "..\\Ch05_Sort_Search\\main.cpp",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch05_Sort_Search\\main.cpp",
+              "RelativeToolTip": "..\\Ch05_Sort_Search\\main.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-06-17T07:17:24.063Z",
+              "WhenOpened": "2025-06-18T07:04:16.199Z",
               "EditorCaption": ""
             }
           ]
