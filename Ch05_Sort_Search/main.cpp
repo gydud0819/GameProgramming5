@@ -176,6 +176,20 @@ void BinarySearch(vector<int> nums, int n, int target, int left, int right)		// 
 * 유저의 ID에 유저가 가진 정보를 저장하고 서버에유저의 ID를 기준으로 해당 유저의 정보(닉네임)을 검색하는 기능 구현하기
 */
 
+/*
+* 정리
+* vector : 선형 탐색, 이진 탐색 
+* 조건 : 사용하는 컨테이너가 정렬이 되어있어야 한다.
+* 사용중인 컨테이너의 특징 : 임의의 값을 바로 접근하거나 수정해야 할 경우에는 비효율적이다. 
+* 
+* list : 랜덤한 값의 수정을 즉시 할 수 있다. 
+* mid index의 값과 target 비교
+* 0-> mid 순차적으로 탐색후 mid 값을 반환한다. 
+* 
+* 단점 : log N 시간을 확보했지만, 사용하기 위한 자료구조가 적합하지 않다. 
+* 연관 컨테이너 : set, map (트리구조로 구현되어 있다.)
+*/
+
 // pair를 직접 만들어 구현한 것
 template <typename T1, typename T2>
 struct Mypair
@@ -196,9 +210,20 @@ public:
 
 };
 
-void UserDataSearch(vector<pair<int, string>> data, int ID)
+bool UserDataSearch(vector<pair<int, string>> data, int ID)
 {
-	
+	// 탐색 함수 + pair 클래스를 중복해서 코드 표현하기
+	for (int i = 0; i < data.size(); i++)
+	{
+		if (data[i].first == ID)
+		{
+			cout << "닉네임 : " << data[i].second << endl;
+			return true;
+		}
+		
+	}
+	cout << "해당하는 데이터가 존재하지 않는다." << endl;
+	return false;
 }
 
 void Example()
@@ -225,7 +250,7 @@ void Example()
 		temp.push_back(data[i].first);
 	}
 
-	LinearSearch(temp, 4);		// 값이 존재 한다면
+	//LinearSearch(temp, 4);		// 값이 존재 한다면
 	cout << "데이터가 존재한다 : (" << data[4].second << ")" << endl;
 
 	/*
@@ -258,4 +283,17 @@ int main()
 	LinearSearch(arr3, 5, 2);
 
 	cout << endl;
+
+	cout << "유저 아이디로 닉네임 검색하기" << endl;
+	vector < pair<int, string>> data3;
+	data3.push_back({ 1, "AAA" });
+	data3.push_back({ 2, "BBB" });
+	data3.push_back({ 3, "CCC" });
+
+	if (UserDataSearch(data3, 3))
+	{
+		data3[3].second = "NNN";
+		// data[3] -> 변경하는 코드 작성하기
+		// 닉네임을 변경하고 비밀번호를 입력하고 해당 닉네임으로 로그인하는 것 만들기
+	}
 }
