@@ -6,7 +6,7 @@
       "AbsoluteMoniker": "D:0:0:{7835A404-81DD-4592-BBBF-76C424AF05CD}|..\\Ch06_Tree(\uD2B8\uB9AC\uAD6C\uC870)\\Ch06_Tree(\uD2B8\uB9AC\uAD6C\uC870).vcxproj|C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch06_Tree(\uD2B8\uB9AC\uAD6C\uC870)\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C59122F1-EAD1-41BE-887E-B5D654AD8F9C}|..\\Ch05_Sort_Search\\Ch05_Sort_Search.vcxproj|C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch05_Sort_Search\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{72628CC7-34D3-4447-B779-F0CF00B7052E}|..\\Ch07_kthFind\\Ch07_kthFind.vcxproj|C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch07_kthFind\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -16,8 +16,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "main.cpp",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch07_kthFind\\main.cpp",
+              "RelativeDocumentMoniker": "..\\Ch07_kthFind\\main.cpp",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch07_kthFind\\main.cpp",
+              "RelativeToolTip": "..\\Ch07_kthFind\\main.cpp",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABsAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-06-20T08:11:00.986Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -26,22 +39,9 @@
               "RelativeDocumentMoniker": "..\\Ch06_Tree(\uD2B8\uB9AC\uAD6C\uC870)\\main.cpp",
               "ToolTip": "C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch06_Tree(\uD2B8\uB9AC\uAD6C\uC870)\\main.cpp",
               "RelativeToolTip": "..\\Ch06_Tree(\uD2B8\uB9AC\uAD6C\uC870)\\main.cpp",
-              "ViewState": "AgIAAEMAAAAAAAAAAAAAAFsAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAFsAAAAAAAAAAAAewC4BAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-06-19T07:18:44.896Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "main.cpp",
-              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch05_Sort_Search\\main.cpp",
-              "RelativeDocumentMoniker": "..\\Ch05_Sort_Search\\main.cpp",
-              "ToolTip": "C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch05_Sort_Search\\main.cpp",
-              "RelativeToolTip": "..\\Ch05_Sort_Search\\main.cpp",
-              "ViewState": "AgIAAKgAAAAAAAAAAAAAALMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-06-18T07:04:16.199Z",
               "EditorCaption": ""
             }
           ]

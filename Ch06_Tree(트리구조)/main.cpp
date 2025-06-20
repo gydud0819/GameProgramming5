@@ -1,4 +1,5 @@
 /*
+* 작성일	: 2025-06-19, 20
 * 주제	: 트리 구조 
 */
 #include <iostream>
@@ -54,6 +55,22 @@ using namespace std;
 * 단점 : 노드가 한쪽으로 치우칠 경우 n만큼 시간이 걸림 
 */
 
+/*
+* tree 용어 정리
+* 노드 : (값(value), 왼쪽 노드 주소, 오른쪽 노드 주소) 3가지를 가지는 데이터
+* 부모 노드 : 자식 노드와 직접 연결된 노드
+* 자식 노드 : 부모 노드와 직접 연결된 노드
+* 조상 노드 : 특정 노드에서 루트까지의 경로에 있는 모든 노드들 (가지친거?) 
+* 후손 노드 : 특정 노드의 모든 자식들을 포함하는 노드
+* 루트 노드 : 트리에 있는 최상위 노드, 부모 노드가 없음
+* 
+* 알고리즘 트리 코드 구현시 사용되는 용어
+* 레벨(level) : 루트로부터의 거리 / 루트는 0을 반환함
+* 높이(high) : 트리에서 가장 깊은 레벨
+* 깊이 : 특정 노드에서 루트까지의 길이 
+* 서브 트리  : 트리 내부에 후손들로 구성된 또 다른 트리 
+*/
+
 struct Node
 {
 	int value;
@@ -85,7 +102,7 @@ public:
 		InOrder(root->rightNode);
 	}
 
-	void PostOrder(Node* root)	// 후위 순회 방식
+	void PostOrder(Node* root)	// 후위 순회 방식 LRN
 	{
 		if (root == nullptr) { return; }
 		PostOrder(root->leftNode);
@@ -152,11 +169,75 @@ private:
 
 		if (node->value > value)
 		{
-			node->leftNode = insert(node->leftNode, value);		// 새로들어가는 값이 작으면 왼쪽에 저장
+			node->leftNode = insert(node->leftNode, value);		// 새로 들어가는 값이 작으면 왼쪽에 저장
 		}
 		else if (node->value < value)
 		{
-			node->rightNode = insert(node->rightNode, value);	// 새로들어가는 값이 크면 오른쪽에 저장
+			node->rightNode = insert(node->rightNode, value);	// 새로 들어가는 값이 크면 오른쪽에 저장
+		}
+		return node;
+	}
+
+	Node* FindMin(Node* node)		// 오른쪽에서 가장 작은 값을 찾을 때
+	{
+		// 재귀함수로 표현
+		if (node == nullptr || node->leftNode == nullptr)
+		{
+			return node;
+		}
+
+		return FindMin(node->leftNode);
+	}
+
+	Node* FindMax(Node* node)		// 왼쪽에서 가장 큰 값을 찾을 때
+	{
+		if (node == nullptr || node->rightNode == nullptr)
+		{
+			return node;
+		}
+		return FindMax(node->rightNode);
+	}
+
+	Node* deleteNode(Node* node, int target)	// 삭제 노드		// 데이터를 먼저 찾은 다음 있으면 지운다.
+	{
+		if (node == nullptr) { return nullptr; }	// 노드가 아무것도 가리키지 않으면 nullptr를 반환한다. 
+
+		if (node->value > target)	// 노드에 있는 값이 타겟보다 크면 왼쪽으로 이동
+		{
+			node->leftNode = deleteNode(node->leftNode, target);
+		}
+		else if (node->value < target)	// 노드에 있는 값이 타겟보다 작으면 오른쪽으로 이동
+		{
+			node->rightNode = deleteNode(node->rightNode, target);
+		}
+		else		
+		{
+			// 지울 데이터를 찾았을 때 노드 삭제 하기
+			if (node->leftNode == nullptr && node->rightNode == nullptr);		
+			if (node->leftNode == nullptr);	// 오른쪽 노드가 없을 때
+			if (node->rightNode == nullptr);	// 오른쪽 노드가 없을 때
+
+			if (node->leftNode == nullptr || node->rightNode == nullptr)
+			{
+				Node* temp = node->leftNode != nullptr ? node->leftNode : node->rightNode;	// 왼쪽 노드가 nullptr이 아니면 왼쪽노드 값을, 맞으면 오른쪽 노드
+
+				if (temp == nullptr)		// 자식 노드가 없을 때
+				{
+					temp = node;
+					node = nullptr;
+				}
+				else
+				{
+					node = temp;
+				}
+			}
+			else	// 자식이 2개인 경우 
+			{
+				// 오른쪽에서 가장 작은 값을 찾거나 왼쪽에서 가장 큰 값을 찾는다. 왼쪽에서 가장 큰 데이터 값이 올라가는거 아닌가? 
+				Node* temp = FindMin(node->rightNode);	// 나는 왼쪽에서 찾을거임
+				node->value = temp->value;
+				node->rightNode = deleteNode(node->rightNode, temp->value);
+			}
 		}
 		return node;
 	}
@@ -186,6 +267,11 @@ public:
 		inorder(root);
 		cout << endl;
 	}
+
+	void DeleteNode(int value)
+	{
+		root = deleteNode(root, value);
+	}
 	
 };
 
@@ -208,5 +294,10 @@ int main()
 	bst.insert(7);
 
 	bst.inorder();
+
+	cout << "데이터 1 삭제 후 결과" << endl;
+	bst.DeleteNode(1);
+	bst.inorder();
+
 
 }
