@@ -55,9 +55,10 @@ void EmergencyExample()
 	* heapsort() - Èü Á¤·Ä
 	*/
 
-	for (int i = 0; i < people.size(); i++)
+	for (int i = 0; i < people.size(); i++)		// 
 	{
-		int key = sheets.find(people[people.size() - 1 -i])->first;
+		auto it = sheets.find(people[people.size() - 1 -i])->first;
+		int index
 		answer[key] = i + 1;
 	}
 

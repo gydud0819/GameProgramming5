@@ -17,6 +17,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ch06_Tree(트리구조)", "
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ch07_kthFind", "..\Ch07_kthFind\Ch07_kthFind.vcxproj", "{72628CC7-34D3-4447-B779-F0CF00B7052E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ch08_Heap", "..\Ch08_Heap\Ch08_Heap.vcxproj", "{19E0D2E2-7B2A-4AD3-8B51-C3FA83A410AB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -81,6 +83,14 @@ Global
 		{72628CC7-34D3-4447-B779-F0CF00B7052E}.Release|x64.Build.0 = Release|x64
 		{72628CC7-34D3-4447-B779-F0CF00B7052E}.Release|x86.ActiveCfg = Release|Win32
 		{72628CC7-34D3-4447-B779-F0CF00B7052E}.Release|x86.Build.0 = Release|Win32
+		{19E0D2E2-7B2A-4AD3-8B51-C3FA83A410AB}.Debug|x64.ActiveCfg = Debug|x64
+		{19E0D2E2-7B2A-4AD3-8B51-C3FA83A410AB}.Debug|x64.Build.0 = Debug|x64
+		{19E0D2E2-7B2A-4AD3-8B51-C3FA83A410AB}.Debug|x86.ActiveCfg = Debug|Win32
+		{19E0D2E2-7B2A-4AD3-8B51-C3FA83A410AB}.Debug|x86.Build.0 = Debug|Win32
+		{19E0D2E2-7B2A-4AD3-8B51-C3FA83A410AB}.Release|x64.ActiveCfg = Release|x64
+		{19E0D2E2-7B2A-4AD3-8B51-C3FA83A410AB}.Release|x64.Build.0 = Release|x64
+		{19E0D2E2-7B2A-4AD3-8B51-C3FA83A410AB}.Release|x86.ActiveCfg = Release|Win32
+		{19E0D2E2-7B2A-4AD3-8B51-C3FA83A410AB}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

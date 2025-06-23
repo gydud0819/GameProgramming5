@@ -213,9 +213,9 @@ private:
 		else		
 		{
 			// 지울 데이터를 찾았을 때 노드 삭제 하기
-			if (node->leftNode == nullptr && node->rightNode == nullptr);		
-			if (node->leftNode == nullptr);	// 오른쪽 노드가 없을 때
-			if (node->rightNode == nullptr);	// 오른쪽 노드가 없을 때
+			//if (node->leftNode == nullptr && node->rightNode == nullptr);		
+			//if (node->leftNode == nullptr);	// 오른쪽 노드가 없을 때
+			//if (node->rightNode == nullptr);	// 오른쪽 노드가 없을 때
 
 			if (node->leftNode == nullptr || node->rightNode == nullptr)
 			{
@@ -223,20 +223,23 @@ private:
 
 				if (temp == nullptr)		// 자식 노드가 없을 때
 				{
-					temp = node;
-					node = nullptr;
+					temp = node;			// 지우고 싶은 노드를 임시로 저장 (지워야할 메모리르 가리키고 있다.)
+					node = nullptr;			// 지우고 싶은 노드를 null을 가리키도록 수정한다. 
+					delete = temp;			// 임시 보관한 주소 지우기 
 				}
 				else
 				{
-					node = temp;
+					Node* nodeTodelete = node;
+					node = temp;			// 하나만 있는 자식(temp)를 지워야할 노드위치로 이동한다.
+					delete = nodeTodelete;	// 지워야할 노드 == 메모리를 삭제한다. 
 				}
 			}
 			else	// 자식이 2개인 경우 
 			{
 				// 오른쪽에서 가장 작은 값을 찾거나 왼쪽에서 가장 큰 값을 찾는다. 왼쪽에서 가장 큰 데이터 값이 올라가는거 아닌가? 
-				Node* temp = FindMin(node->rightNode);	// 나는 왼쪽에서 찾을거임
+				Node* temp = FindMax(node->leftNode);	// 나는 왼쪽에서 찾을거임
 				node->value = temp->value;
-				node->rightNode = deleteNode(node->rightNode, temp->value);
+				node->leftNode = deleteNode(node->leftNode, temp->value);
 			}
 		}
 		return node;
@@ -272,6 +275,11 @@ public:
 	{
 		root = deleteNode(root, value);
 	}
+
+	void ReturnRoot()
+	{
+		cout << "현재 루트 값 : " << root->value << endl;
+	}
 	
 };
 
@@ -286,9 +294,9 @@ int main()
 	cout << "이진 탐색 트리 실행" << endl;		
 
 	BST bst;
+	bst.insert(4);
 	bst.insert(1);
 	bst.insert(6);
-	bst.insert(4);
 	bst.insert(3);
 	bst.insert(9);
 	bst.insert(7);
@@ -296,7 +304,8 @@ int main()
 	bst.inorder();
 
 	cout << "데이터 1 삭제 후 결과" << endl;
-	bst.DeleteNode(1);
+	bst.DeleteNode(4);
+	bst.ReturnRoot();
 	bst.inorder();
 
 
