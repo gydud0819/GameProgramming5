@@ -3,6 +3,9 @@
   "WorkspaceRootPath": "C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch01_Game_Algorithm\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{99E4280C-C54A-428C-B370-FFFB7C83AAFA}|..\\Ch11_Graph_Traverse (\uADF8\uB798\uD504 \uC21C\uD68C \uC751\uC6A9)\\Ch11_Graph_Traverse (\uADF8\uB798\uD504 \uC21C\uD68C \uC751\uC6A9).vcxproj|C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch11_Graph_Traverse (\uADF8\uB798\uD504 \uC21C\uD68C \uC751\uC6A9)\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{88E145F2-2FCC-483A-9FEA-BDA2132A64AC}|..\\Ch10_Graph\\Ch10_Graph.vcxproj|C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch10_Graph\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
@@ -19,11 +22,24 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "main.cpp",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch11_Graph_Traverse (\uADF8\uB798\uD504 \uC21C\uD68C \uC751\uC6A9)\\main.cpp",
+              "RelativeDocumentMoniker": "..\\Ch11_Graph_Traverse (\uADF8\uB798\uD504 \uC21C\uD68C \uC751\uC6A9)\\main.cpp",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch11_Graph_Traverse (\uADF8\uB798\uD504 \uC21C\uD68C \uC751\uC6A9)\\main.cpp",
+              "RelativeToolTip": "..\\Ch11_Graph_Traverse (\uADF8\uB798\uD504 \uC21C\uD68C \uC751\uC6A9)\\main.cpp",
+              "ViewState": "AgIAADYBAAAAAAAAAAAAAEIBAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-06-26T07:50:28.391Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "main.cpp",
               "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch10_Graph\\main.cpp",
               "RelativeDocumentMoniker": "..\\Ch10_Graph\\main.cpp",
               "ToolTip": "C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch10_Graph\\main.cpp",
               "RelativeToolTip": "..\\Ch10_Graph\\main.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEQAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAI0AAAAAAAAAAAAAAEEBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-06-25T07:03:57.843Z",
               "EditorCaption": ""

@@ -38,38 +38,54 @@ using namespace std;
 */
 
 /*
-	* 그래프를 매트릭스로 표현했을 때 실제로 어떻게 점과 선이 연결되어 있는지 알 수 있다.
-	* 0은 연결 안된 거 1은 연결 된거
-	*
-	*   A B C D
-	* A 0 1 1 1
-	* B 1 0 1 1
-	* c 1 1 0 0
-	* D 1 1 0 0
-	*/
+* 그래프를 매트릭스로 표현했을 때 실제로 어떻게 점과 선이 연결되어 있는지 알 수 있다.
+* 0은 연결 안된 거 1은 연결 된거
+*
+*   A B C D
+* A 0 1 1 1
+* B 1 0 1 1
+* c 1 1 0 0
+* D 1 1 0 0
+*/
 
-	/*
-	* A : (연결된 데이터) B - C - D
-	* B : A - C - D
-	* C : A - B
-	* D : A - B
-	*/
+/*
+* A : (연결된 데이터) B - C - D
+* B : A - C - D
+* C : A - B
+* D : A - B
+*/
 
-	/*
-	* 프로그래밍으로 그래프를 표현할 수 있음
-	* 연결되어 있는 그래프를 탐색하는 방법
-	*
-	* 1. 깊이 우선 탐색 (Depth First Search)
-	* 2. 너비 우선 탐색 (Breadth First Search)
-	*
-	* 마인크래프트 업적도 그래프로 구성되어있나? -> 그래프보단 트리에 더 가깝고 트리로 표현하는 게 더 쉽다.
-	*/
+/*
+* 프로그래밍으로 그래프를 표현할 수 있음
+* 연결되어 있는 그래프를 탐색하는 방법
+*
+* 1. 깊이 우선 탐색 (Depth First Search)
+* 2. 너비 우선 탐색 (Breadth First Search)
+*
+* 마인크래프트 업적도 그래프로 구성되어있나? -> 그래프보단 트리에 더 가깝고 트리로 표현하는 게 더 쉽다.
+*/
+
+/*
+* 그래프의 탐색(순회) 방법
+* DFS : 깊이 우선 탐색
+* - stack :
+* BFS : 너비 우선 탐색
+* - queue :
+*/
+
+/*
+* 언제 DFS, BFS를 사용할 수 있는가?
+* - 그래프를 탐색할 때 쉽게 구현할 수 있는 것 선택하기
+* - DFS : 그래프가 순회를 하고있는지 파악할 때
+* - BFS : 특정 위치까지 최소의 거리로 도달하는 방법을 구할 때
+*/
+
 class Graph
 {
 private:
 	int V;		// 점의 개수 (도시, 노드)
 	//int[y][x];		// 밑의 방법으로 표현 가능
-	vector<vector<int>> adj;		// 이중벡터			, 각 점에서 인접한 점을 연결하는 2차원 배열
+	vector<vector<int>> adj;		// 이중벡터			// 각 점에서 인접한 점을 연결하는 2차원 배열
 
 	vector<bool> visited;				// 한번 지나간 길은 들린 걸로 간주하기
 
@@ -104,13 +120,13 @@ private:
 			int Cvertex = stack.top();
 			stack.pop();
 			// 방문하지 않았을 때만
-			
+
 			// stack : 데이터 삽입 후, 가장 마지막에 들어온 데이터를 먼저 실행
 			// 반복문을 사용하여 역순으로 데이터를 실행하게 만든다.
-			
+
 			if (visited[Cvertex] == false)
 			{
-				visited[Cvertex] == true;
+				visited[Cvertex] = true;
 				cout << v << " ";
 			}
 
@@ -124,19 +140,67 @@ private:
 				}
 			}
 
-			//for (auto& elem : adj[Cvertex])
-			//{
 
-
-
-			//	//if (visited[elem]==false)		// 방문한 원소가 false일때 
-			//	//{
-			//	//	stack.push(elem);		// 원소 넣기 
-			//	//	visited[elem] = true;
-			//	//	cout << elem << " ";
-			//	//}
-			//}
 		}
+	}
+
+	void BFSIter(int start)
+	{
+		queue<int> q;
+		visited[start] = true;
+		q.push(start);				// 그래프의 시작 노드 삽입하기
+
+		while (!q.empty())
+		{
+			int c = q.front();
+			q.pop();
+
+			cout << c << " ";
+
+			for (auto& e : adj[c])	// c에 연결되어있는 노드를 접근하는 코드 adj[c]
+			{
+				if (visited[e] == false)
+				{
+					visited[e] = true;		// 방문 안했으면 트루로 한다. 
+					q.push(e);
+
+				}
+
+
+			}
+		}
+	}
+
+	void BFSRecursive(queue<int>& q)
+	{
+		// 1. 재귀 함수의 탈출조건 쓰기 ( q가 (empty) 비엇을때)
+		if (q.empty()) { return; }
+
+		int c = q.front();
+		q.pop();
+
+		cout << c << " ";
+
+		// 2. BFS 반복방식 코드 가져오기 
+		for (auto& e : adj[c])
+		{
+			if (visited[e] == false)
+			{
+				visited[e] = true;
+				q.push(e);
+			}
+		}
+		// 3. 자기 자신 함수 호출하기 (재귀 호출) == 얘가 어디로 가야하는겨  순서가 잘못된거같은디 
+		BFSRecursive(q);
+
+	}
+
+	void BFS(int start)
+	{
+		queue<int> q;
+		q.push(start);
+		visited[start] = true;
+		BFSRecursive(q);
 	}
 public:
 	// 점의 개수를 생성자로 초기화 하기
@@ -170,7 +234,7 @@ public:
 		// 방문한 경험을 초기화한다.
 		fill(visited.begin(), visited.end(), false);
 
-		cout << "DFS 탐색 결과 (시작 지점 : " << startV << ")";
+		cout << "DFS 탐색 결과 (시작 지점 : " << startV << ")" << endl;
 		DFS(startV);
 		cout << endl;
 
@@ -180,10 +244,30 @@ public:
 	{
 		fill(visited.begin(), visited.end(), false);
 
-		cout << "DFSIter 탐색 결과 (시작 지점 : " << startV << ")";
+		cout << "DFSIter 탐색 결과 (시작 지점 : " << startV << ")" << endl;
 		DFSIter(startV);
 		cout << endl;
 	}
+
+	void BFSTraverse(int startV)
+	{
+		fill(visited.begin(), visited.end(), false);		// 방문한 경험을 초기화 하는 코드
+
+		cout << "BFS 탐색 결과 (시작 지점 : " << startV << ")" << endl;
+		BFS(startV);
+		cout << endl;
+	}
+
+	void BFSIterTraverse(int startV)
+	{
+		fill(visited.begin(), visited.end(), false);		// 방문한 경험을 초기화 하는 코드
+
+		cout << "BFSIter 탐색 결과 (시작 지점 : " << startV << ")" << endl;
+		BFSIter(startV);
+		cout << endl;
+	}
+
+
 };
 
 class GraphMatrix		// 인접 행렬로 표현한 그래프
@@ -218,15 +302,22 @@ public:
 
 int main()
 {
-	Graph graph(4);
+	Graph graph(6);
+
 	graph.addEdge(0, 1);
 	graph.addEdge(0, 2);
-	graph.addEdge(0, 3);
-
-	graph.addEdge(1, 2);
 	graph.addEdge(1, 3);
+	graph.addEdge(2, 4);
+	graph.addEdge(2, 5);
+
 	graph.DFSTraverse(2);
+	cout << endl;
 	graph.DFSIterTraverse(3);
+	cout << endl;
+	graph.BFSTraverse(0);
+	cout << endl;
+	graph.BFSIterTraverse(0);
+	cout << endl;
 	graph.printEdge();
 
 	cout << endl;
