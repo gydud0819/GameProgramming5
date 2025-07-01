@@ -3,10 +3,7 @@
   "WorkspaceRootPath": "C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch01_Game_Algorithm\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{16B366C0-1B89-4194-B073-5A932D29948E}|..\\Ch13_Dynamic Programing (\uB3D9\uC801 \uACC4\uD68D\uBC95)\\Ch13_Dynamic Programing (\uB3D9\uC801 \uACC4\uD68D\uBC95).vcxproj|C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch13_Dynamic Programing (\uB3D9\uC801 \uACC4\uD68D\uBC95)\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6FB58E5F-19A4-41D2-A166-58369CBA454A}|..\\Ch12_GameGraph\\Ch12_GameGraph.vcxproj|C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch12_GameGraph\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{6EE78A54-632D-409D-BF38-CCBB69D28FCE}|..\\Ch14_Greedy Algorithm (\uD0D0\uC695 \uC54C\uACE0\uB9AC\uC998)\\Ch14_Greedy Algorithm (\uD0D0\uC695 \uC54C\uACE0\uB9AC\uC998).vcxproj|C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch14_Greedy Algorithm (\uD0D0\uC695 \uC54C\uACE0\uB9AC\uC998)\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,26 +19,13 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "main.cpp",
-              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch13_Dynamic Programing (\uB3D9\uC801 \uACC4\uD68D\uBC95)\\main.cpp",
-              "RelativeDocumentMoniker": "..\\Ch13_Dynamic Programing (\uB3D9\uC801 \uACC4\uD68D\uBC95)\\main.cpp",
-              "ToolTip": "C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch13_Dynamic Programing (\uB3D9\uC801 \uACC4\uD68D\uBC95)\\main.cpp",
-              "RelativeToolTip": "..\\Ch13_Dynamic Programing (\uB3D9\uC801 \uACC4\uD68D\uBC95)\\main.cpp",
-              "ViewState": "AgIAAFMAAAAAAAAAAAAAAIgAAAAPAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch14_Greedy Algorithm (\uD0D0\uC695 \uC54C\uACE0\uB9AC\uC998)\\main.cpp",
+              "RelativeDocumentMoniker": "..\\Ch14_Greedy Algorithm (\uD0D0\uC695 \uC54C\uACE0\uB9AC\uC998)\\main.cpp",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch14_Greedy Algorithm (\uD0D0\uC695 \uC54C\uACE0\uB9AC\uC998)\\main.cpp",
+              "RelativeToolTip": "..\\Ch14_Greedy Algorithm (\uD0D0\uC695 \uC54C\uACE0\uB9AC\uC998)\\main.cpp",
+              "ViewState": "AgIAALIAAAAAAAAAAAAIwMkAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-06-30T07:04:23.542Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "main.cpp",
-              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch12_GameGraph\\main.cpp",
-              "RelativeDocumentMoniker": "..\\Ch12_GameGraph\\main.cpp",
-              "ToolTip": "C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch12_GameGraph\\main.cpp",
-              "RelativeToolTip": "..\\Ch12_GameGraph\\main.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-06-27T07:03:16.662Z",
+              "WhenOpened": "2025-07-01T07:02:43.142Z",
               "EditorCaption": ""
             }
           ]
