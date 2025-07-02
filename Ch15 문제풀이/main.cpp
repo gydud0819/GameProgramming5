@@ -41,15 +41,14 @@ void Slove1()
 
 	for (int i = 1; i < waitTimeTable.size(); i++)
 	{
-		clients[i] = clients[i + 1] + waitTimeTable[i];
+		clients[i] = clients[i - 1] + waitTimeTable[i];
 
 	}
 
-	//for (int& t : clients)
-	//{
-	//	totalTime += t;
-	//}
-	//cout << endl;
+	for (int& t : clients)
+	{
+		totalTime += t;
+	}
 
 
 	// 2. 문제 풀이 방식 선택하기
@@ -167,9 +166,11 @@ public:
 			int weight = selectableItems[i].GetWeight();
 			int value = selectableItems[i].GetValue();
 
-			for (int w = targetWeight; w >= targetWeight; w--)
+			if (weight <= 0) continue;
+
+			for (int w = targetWeight; w >= weight; w--)
 			{
-				//dp[w] = max(dp[w], dp[w - currentWeight] + dp[w]); //-> 수정해보기
+				dp[w] = max(dp[w], dp[w - weight] + value); //-> 수정해보기
 			}
 		}
 		// 계산한 최적의 조합을 역산해서 다시 vector에 저장하기
@@ -213,8 +214,11 @@ void InventoryWieghtSystem()
 
 int main()
 {
-	//Slove1();
+	Slove1();
+
+	cout << endl;
 	Slove2();
+	cout << endl;
 
 	InventoryWieghtSystem();
 }
