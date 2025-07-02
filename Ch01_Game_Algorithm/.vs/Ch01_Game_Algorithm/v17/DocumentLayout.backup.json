@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch01_Game_Algorithm\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6EE78A54-632D-409D-BF38-CCBB69D28FCE}|..\\Ch14_Greedy Algorithm (\uD0D0\uC695 \uC54C\uACE0\uB9AC\uC998)\\Ch14_Greedy Algorithm (\uD0D0\uC695 \uC54C\uACE0\uB9AC\uC998).vcxproj|C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch14_Greedy Algorithm (\uD0D0\uC695 \uC54C\uACE0\uB9AC\uC998)\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{B7D38E93-8A2A-49BB-BED6-9C6B50530227}|..\\Ch15 \uBB38\uC81C\uD480\uC774\\Ch15 \uBB38\uC81C\uD480\uC774.vcxproj|C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch15 \uBB38\uC81C\uD480\uC774\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,13 +19,13 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "main.cpp",
-              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch14_Greedy Algorithm (\uD0D0\uC695 \uC54C\uACE0\uB9AC\uC998)\\main.cpp",
-              "RelativeDocumentMoniker": "..\\Ch14_Greedy Algorithm (\uD0D0\uC695 \uC54C\uACE0\uB9AC\uC998)\\main.cpp",
-              "ToolTip": "C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch14_Greedy Algorithm (\uD0D0\uC695 \uC54C\uACE0\uB9AC\uC998)\\main.cpp",
-              "RelativeToolTip": "..\\Ch14_Greedy Algorithm (\uD0D0\uC695 \uC54C\uACE0\uB9AC\uC998)\\main.cpp",
-              "ViewState": "AgIAALIAAAAAAAAAAAAIwMkAAAAfAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch15 \uBB38\uC81C\uD480\uC774\\main.cpp",
+              "RelativeDocumentMoniker": "..\\Ch15 \uBB38\uC81C\uD480\uC774\\main.cpp",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch15 \uBB38\uC81C\uD480\uC774\\main.cpp",
+              "RelativeToolTip": "..\\Ch15 \uBB38\uC81C\uD480\uC774\\main.cpp",
+              "ViewState": "AgIAAJUAAAAAAAAAAAAIwJwAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-07-01T07:02:43.142Z",
+              "WhenOpened": "2025-07-02T07:02:32.726Z",
               "EditorCaption": ""
             }
           ]
