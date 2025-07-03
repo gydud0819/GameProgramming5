@@ -53,7 +53,6 @@ void Slove1()
 
 	// 2. 문제 풀이 방식 선택하기
 	cout << n << "명의 사람들이 모두 기다리는 시간이 최소가 되는 시간은 " << totalTime << "초" << endl;
-	// 3. 
 
 }
 
@@ -72,12 +71,12 @@ void Slove2()
 
 	// 1. n = 4 (무게?), k = 7(가치?)		[6,13] [4,8] [3,6] [5, 12]
 	// 가장 가치있는 물건들만 담기 위해 어떻게 해야하는지 
-	
+
 	// 페어 써도될거같긴한데 
 	int n = 4;
 	int k = 7;
 	vector<pair<int, int>> items = { {6,13}, {4,8}, {3,6}, {5,12} };
-	
+
 	//sort(items.begin(), items.end());
 
 	// 무게별 가치 평가 
@@ -94,7 +93,7 @@ void Slove2()
 			dp[w] = max(dp[w], dp[w - weight] + value);
 		}
 	}
-	
+
 	// 무게가 0 일때 각 무게에서 최대로 담을 수 있도록 무게별 최고 가치 갱신하기
 	//dp[0] = 0;
 	//dp[1] = 0;
@@ -153,7 +152,14 @@ public:
 		return maxWeight >= currentWeight + addItem.GetWeight();
 	}
 
-	int findBestItem(int targetWeight, vector<ItemW>& selectableItems)
+	/*
+	* 2025-07-03
+	* Todo
+	* 1. 선택한 아이템들 중에서 가장 큰 가치, 실제로 선택된 아이템들을 (자료구조)
+	* 반환 값을 pair로 설정하기 pair<T1, T2>
+	*/
+
+	pair<int, vector<ItemW>> findBestItem(int targetWeight, vector<ItemW>& selectableItems)
 	{
 		// 현재 아이템의 무게에 새로운 아이템 조합을 가져올 때 그 아이템을 저장할 컨테이너 선언하기
 		vector<int> dp(targetWeight + 1, 0);		// 가치를 1 더하고 0으로 초기화 하기 
@@ -161,22 +167,39 @@ public:
 		// selectableItems에 들어있는 무게
 		// selectableItems에 들어있는 가치 표현하기
 
+		vector<vector<bool>> selected(selectableItems.size(), vector<bool>(targetWeight + 1, false));	// 최대개수보다 1개 더 많은걸 거짓으로 초기화 
+
 		for (int i = 0; i < selectableItems.size(); i++)
 		{
 			int weight = selectableItems[i].GetWeight();
 			int value = selectableItems[i].GetValue();
 
-			if (weight <= 0) continue;
-
 			for (int w = targetWeight; w >= weight; w--)
 			{
-				dp[w] = max(dp[w], dp[w - weight] + value); //-> 수정해보기
+				if (dp[w - weight] + value > dp[w])
+				{
+					dp[w] = dp[w - weight] + value; 
+					selected[i][w] = true;				// dp[w - weight] > dp[w] 이 조건이 참일때
+				}
+
 			}
 		}
 		// 계산한 최적의 조합을 역산해서 다시 vector에 저장하기
 		// while(weight - 무게)
 
-		return dp[targetWeight];
+		vector<ItemW> bestItmes;
+		int w = targetWeight;
+
+		for (int i = selectableItems.size() -1; i >= 0 && w > 0; i--)
+		{
+			if(selected[i][w])		// 조건이 참일 때
+			{
+				bestItmes.push_back(selectableItems[i]);
+				w -= selectableItems[i].GetWeight();		
+			}
+		}
+
+		return make_pair(dp[targetWeight], bestItmes);
 	}
 
 	vector<ItemW>& GetInventory()
@@ -196,7 +219,20 @@ void InventoryWieghtSystem()
 	ItemW D("D", 5, 12);
 
 	vector<ItemW> selectable{ A,B,C,D };
-	cout<< "주어진 아이템의 최대 가치 : " << inventory.findBestItem(7, selectable);
+	//cout << "주어진 아이템의 최대 가치 : " << inventory.findBestItem(7, selectable);
+	pair<int,vector<ItemW>> bestItems = inventory.findBestItem(7, selectable);
+
+	cout << "주어진 아이템의 최대 가치 : " << bestItems.first << endl;
+	vector<ItemW> ItemC = bestItems.second;
+
+	int i = 0;
+	for (auto& item : ItemC)		// 자동 추론 
+	{
+		i++;
+		cout << i << "번째 아이템의 이름 : " << item.GetName() << ", 무게 " << item.GetWeight() << ", 가치 " << item.GetValue() << endl;
+		// 유저가 허락했을 때 실행하도록 (유저 입력 코드)
+		inventory.AddItem(item);
+	}
 
 	inventory.AddItem(A);
 	inventory.AddItem(B);
@@ -208,7 +244,7 @@ void InventoryWieghtSystem()
 	for (auto& item : inventory.GetInventory())
 	{
 		index++;
-		cout << index << "번째" << item.GetName() << ", 무게" << item.GetWeight() << ", 가치" << item.GetValue() << endl;
+		cout << index << "번째 " << item.GetName() << ", 무게 " << item.GetWeight() << ", 가치 " << item.GetValue() << endl;
 	}
 }
 

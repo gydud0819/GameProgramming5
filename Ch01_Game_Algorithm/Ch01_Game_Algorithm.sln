@@ -33,6 +33,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ch14_Greedy Algorithm (탐�
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ch15 문제풀이", "..\Ch15 문제풀이\Ch15 문제풀이.vcxproj", "{B7D38E93-8A2A-49BB-BED6-9C6B50530227}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ch16_GameUI", "..\Ch16_GameUI\Ch16_GameUI.vcxproj", "{242149FB-B436-4580-9005-DD13E477A802}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -161,6 +163,14 @@ Global
 		{B7D38E93-8A2A-49BB-BED6-9C6B50530227}.Release|x64.Build.0 = Release|x64
 		{B7D38E93-8A2A-49BB-BED6-9C6B50530227}.Release|x86.ActiveCfg = Release|Win32
 		{B7D38E93-8A2A-49BB-BED6-9C6B50530227}.Release|x86.Build.0 = Release|Win32
+		{242149FB-B436-4580-9005-DD13E477A802}.Debug|x64.ActiveCfg = Debug|x64
+		{242149FB-B436-4580-9005-DD13E477A802}.Debug|x64.Build.0 = Debug|x64
+		{242149FB-B436-4580-9005-DD13E477A802}.Debug|x86.ActiveCfg = Debug|Win32
+		{242149FB-B436-4580-9005-DD13E477A802}.Debug|x86.Build.0 = Debug|Win32
+		{242149FB-B436-4580-9005-DD13E477A802}.Release|x64.ActiveCfg = Release|x64
+		{242149FB-B436-4580-9005-DD13E477A802}.Release|x64.Build.0 = Release|x64
+		{242149FB-B436-4580-9005-DD13E477A802}.Release|x86.ActiveCfg = Release|Win32
+		{242149FB-B436-4580-9005-DD13E477A802}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
