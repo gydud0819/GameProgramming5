@@ -121,7 +121,7 @@ void DrawBox()
 	cout << "         " << endl;
 	Color::Print(Color::BG_CYAN, Color::WHITE, "|");
 	cout << endl;
-	cout << "+---------+" << endl;
+	cout << Color::BG_CYAN << "+---------+" << Color::RESET << endl;
 }
 
 int main()
