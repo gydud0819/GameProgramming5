@@ -1,12 +1,12 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\DPC\\Desktop\\GameProgramming5\\Ch01_Game_Algorithm\\",
+  "WorkspaceRootPath": "C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch01_Game_Algorithm\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{242149FB-B436-4580-9005-DD13E477A802}|..\\Ch16_GameUI\\Ch16_GameUI.vcxproj|C:\\Users\\DPC\\Desktop\\GameProgramming5\\Ch16_GameUI\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{242149FB-B436-4580-9005-DD13E477A802}|..\\Ch16_GameUI\\Ch16_GameUI.vcxproj|C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch16_GameUI\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B7D38E93-8A2A-49BB-BED6-9C6B50530227}|..\\Ch15 \uBB38\uC81C\uD480\uC774\\Ch15 \uBB38\uC81C\uD480\uC774.vcxproj|C:\\Users\\DPC\\Desktop\\GameProgramming5\\Ch15 \uBB38\uC81C\uD480\uC774\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{B7D38E93-8A2A-49BB-BED6-9C6B50530227}|..\\Ch15 \uBB38\uC81C\uD480\uC774\\Ch15 \uBB38\uC81C\uD480\uC774.vcxproj|C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch15 \uBB38\uC81C\uD480\uC774\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -16,33 +16,51 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "main.cpp",
-              "DocumentMoniker": "C:\\Users\\DPC\\Desktop\\GameProgramming5\\Ch16_GameUI\\main.cpp",
-              "RelativeDocumentMoniker": "..\\Ch16_GameUI\\main.cpp",
-              "ToolTip": "C:\\Users\\DPC\\Desktop\\GameProgramming5\\Ch16_GameUI\\main.cpp",
-              "RelativeToolTip": "..\\Ch16_GameUI\\main.cpp",
-              "ViewState": "AgIAAFoAAAAAAAAAAAAAAHoAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-07-03T15:00:33.561Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "main.cpp",
-              "DocumentMoniker": "C:\\Users\\DPC\\Desktop\\GameProgramming5\\Ch15 \uBB38\uC81C\uD480\uC774\\main.cpp",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch15 \uBB38\uC81C\uD480\uC774\\main.cpp",
               "RelativeDocumentMoniker": "..\\Ch15 \uBB38\uC81C\uD480\uC774\\main.cpp",
-              "ToolTip": "C:\\Users\\DPC\\Desktop\\GameProgramming5\\Ch15 \uBB38\uC81C\uD480\uC774\\main.cpp",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch15 \uBB38\uC81C\uD480\uC774\\main.cpp",
               "RelativeToolTip": "..\\Ch15 \uBB38\uC81C\uD480\uC774\\main.cpp",
-              "ViewState": "AgIAAN8AAAAAAAAAAAAAAAMBAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAM4AAAAAAAAAAAAAwNUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-07-03T14:59:59.839Z",
+              "WhenOpened": "2025-07-04T07:38:12.935Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "main.cpp",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch16_GameUI\\main.cpp",
+              "RelativeDocumentMoniker": "..\\Ch16_GameUI\\main.cpp",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch16_GameUI\\main.cpp",
+              "RelativeToolTip": "..\\Ch16_GameUI\\main.cpp",
+              "ViewState": "AgIAAEQBAAAAAAAAAAAAAFUBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-07-04T07:01:40.481Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{6d4078d1-5951-4ed1-ac0e-0a8099c1cce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
             }
           ]
         }
