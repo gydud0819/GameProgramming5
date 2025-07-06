@@ -30,11 +30,13 @@ void EmergencyExample()
 	vector<int> people = { 14, 23, 2, 5, 31, 37 };
 
 	vector<int> answer;
+	answer.assign(people.size(), 0);
 	map<int, int> sheets;
+
 
 	for (int i = 0; i < people.size(); i++)
 	{
-		sheets.insert({ i, people[i] });
+		sheets.insert({ people[i], i });
 	}
 
 	sort(people.begin(), people.end());
@@ -57,9 +59,9 @@ void EmergencyExample()
 
 	for (int i = 0; i < people.size(); i++)		// 
 	{
-		auto it = sheets.find(people[people.size() - 1 -i])->first;
-		int index
-		answer[key] = i + 1;
+		auto it = sheets.find(people[people.size() - 1 -i]);
+		int index = it->second;
+		answer[index] = i + 1;
 	}
 
 	//answer = people;

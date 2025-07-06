@@ -51,10 +51,11 @@ int CoinBack(int amount)		// amount 거슬러 줘야하는 총 금액
 	// CointWallet 이름으로 Coin을 생성과 동시에 추가하기
 
 
-	vector<int> coins = { 500,100,50,10 };
+	vector<int> coins = { 500,100,50,10,1 };
 	// coins 자료구조는 값이 큰 순서대로 정렬이 되어야 한다. 
 	// 내림차순으로 정렬시키는 코드
 	int totalCount2 = 0;
+
 	vector<Coin> coinwallet;
 	for (int coin : coins)
 	{
@@ -188,23 +189,32 @@ void FormatTime(int value)
 		int value;
 		int count;
 
-		Time(int _value) : value(_value) {}
+		string nameformat;
+
+		Time(int _value, string _name) : value(_value), nameformat(_name) {}
+
+		void Print()
+		{
+			cout << count << nameformat;
+		}
 	};
 
 	// value -> 시 분 초 나누어서 저장하기
-	vector<int> times;		// 시 : 3600초==1시간 분
-		times.emplace_back(3600);
-		times.emplace_back(60);
-		times.emplace_back(1);
+	vector<Time> times;		// 시 : 3600초==1시간 분
+		times.emplace_back(3600, "시");
+		times.emplace_back(60, "분");
+		times.emplace_back(1, "초");
 	
 	for (auto& time : times)
 	{
 		int num = value / time.value;
+		time.count = num;
+		value %= time.value;
 	}
 
 
 
-	cout << "시" << "분" << "초" << endl;
+	cout << times[0].count << "시" << times[1].count << "분" << times[2].count << "초" << endl;
 }
 #pragma endregion
 
@@ -222,6 +232,7 @@ int main()
 	meetingCount(11);
 
 	cout << "값을 시간으로 변환하는 문제" << endl;
+	FormatTime(2167);
 	//FormatTime
 	return 0;
 }

@@ -105,8 +105,53 @@ void MergeSort(int arr[], int n, int left, int right)
 	}
 }
 
-void Merge(vector<int> nums, int n, int left, int right)	// 벡터로 어케 구현해야하지 
+void Merge(vector<int>& nums, int left, int mid, int right)	// 벡터로 어케 구현해야하지 
 {
+	vector<int> sorted(nums.size());
 
+	int i = left;
+	int j = mid + 1;
+	int k = left;
+
+	// 병합
+	while (i <= mid && j <= right)
+	{
+		if (nums[i] <= nums[j])
+			sorted[k++] = nums[i++];
+		else
+			sorted[k++] = nums[j++];
+	}
+
+	if (i > mid)
+	{
+		for (int t = j; t <= right; t++)
+		{
+			sorted[k++] = nums[t];
+		}
+	}
+	else
+	{
+		for (int t = i; t <= mid ; t++)
+		{
+			sorted[k++] = nums[t];
+		}
+	}
+
+	for (int t = left; t <= right; t++)
+	{
+		nums[t] = sorted[t];
+	}
+}
+
+void MergeSort(vector<int>& nums, int left, int right)
+{
+	if (left < right)
+	{
+		int mid = (left + right) / 2;
+
+		MergeSort(nums, left, mid);
+		MergeSort(nums, mid + 1, right);
+		Merge(nums, left, mid, right); // 이게 바로 위 함수
+	}
 }
 #pragma endregion

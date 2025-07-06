@@ -1,6 +1,6 @@
 /*
 * 작성일	: 2025-06-24
-* 주제	: 우선순위 큐를 이용하여 minHeap, maxHeap 구조 작성하기, rpg 보스레이드 턴제 수치 만들기 
+* 주제	: 우선순위 큐를 이용하여 minHeap, maxHeap 구조 작성하기, rpg 보스레이드 턴제 수치 만들기
 */
 #include <iostream>
 #include <vector>
@@ -8,6 +8,123 @@
 #include <utility>
 
 using namespace std;
+
+class Character
+{
+	string name;
+	vector<int> threatLv;	//{10, 5, 8, 7, 6}
+	int currentTurn;
+
+public:
+	Character() = default;
+	Character(string name, vector<int> TLV) : name(name), threatLv(TLV), currentTurn(0) {}
+
+	int GetCurrentThreat()
+	{
+		if (threatLv.size() <= currentTurn)
+		{
+			throw runtime_error("Out of Range");		// -1을 리턴하면 에러를 의미 
+		}
+		return threatLv[currentTurn];		// 배열에 있는 값 반환하기 
+	}
+
+	void NextTurn()
+	{
+		currentTurn++;		// 다음 턴으로 넘어갈때마다 1씩 증가
+	}
+
+	void PrintStat()
+	{
+		cout << name << "(현재 위협도 : " << GetCurrentThreat() << ")" << endl;
+	}
+
+};
+
+class Boss
+{
+public:
+	string name;
+	int currentTurn;
+	priority_queue<int> threatQ;
+	Boss(string name) : name(name), currentTurn(0) {}
+
+	void clear()
+	{
+
+		while (!threatQ.empty())
+		{
+			threatQ.pop();
+		}
+	}
+
+	void UpdateThreatQ(vector<Character>& party)
+	{
+		clear();
+
+		for (auto& character : party)
+		{
+			int threat = character.GetCurrentThreat();
+			threatQ.push(threat);
+			character.NextTurn();
+		}
+	}
+
+	int FindMostThreatCharacter(vector<Character>& party)
+	{
+		//Character* target = nullptr;
+		int MostThreatvalue = threatQ.top();
+
+		return MostThreatvalue;
+
+	}
+
+};
+
+void ThreatSystem()
+{
+	Character a("전사", { 1,2,3,4,5 });
+	Character b("궁수", { 1,8,3,6,5 });
+	Character c("법사", { 3,3,3,3,3 });
+	Character d("도적", { 2,4,6,8,10 });
+	Character e("성직자", { 1,3,5,7,9 });
+
+	vector<Character> party;
+	party.push_back(a);
+	party.push_back(b);
+	party.push_back(c);
+	party.push_back(d);
+	party.push_back(e);
+
+	for (auto& Character : party)
+	{
+		Character.PrintStat();
+	}
+
+	// Boss가 가장 위협도가 높은 숫자를 찾기
+	Boss boss("고블린");
+	boss.UpdateThreatQ(party);		 // 첫번째 턴
+	int value = boss.FindMostThreatCharacter(party);
+	cout << "첫번째 턴에서 위협도가 가장 큰 수치 : " << value << endl;
+
+	cout << endl;
+
+	boss.UpdateThreatQ(party);		// 두번째 턴
+	value = boss.FindMostThreatCharacter(party);
+	cout << "두번째 턴에서 위협도가 가장 큰 수치 : " << value << endl;
+
+	int nextTurnValue = 3;
+
+	int CurrentThreat = 0;
+
+	for (int i = 0; i < nextTurnValue; i++)
+	{
+		CurrentThreat += a.GetCurrentThreat();
+		a.NextTurn();
+	}
+
+	cout << "전사의 3번째 턴 후 위협도" << CurrentThreat << endl;
+	//a.PrintStat();
+}
 
 /*
 * maxHeap, minHeap
@@ -26,6 +143,8 @@ bool myGreater(int a, int b)
 
 // k번째로 작은 수 구하기, k번째로 큰 수 구하기를 우선순위 큐를 사용하면 쉽게 표현할 수 있다.
 // logN 시간으로 k 번째 작은 수를 찾을 수 있다. -> (작은 수를 찾는다.
+
+
 
 #pragma region MinHeap
 class MinHeap
@@ -143,6 +262,13 @@ void FindKthExample()
 }
 #pragma endregion
 
+
+
+
+
+
+
+
 /*
 * rpg 보스 레이드
 * 5인팟
@@ -165,130 +291,11 @@ void FindKthExample()
 * 2. heap 자료구조를 사용해서 k번째 순위를 찾는다.
 *
 * 갯수가 적으면 적을수록 1번 방식이 효율적이다.
-* 2번을 사용해야하는
 */
-
-
-class Character
-{
-	string name;
-	vector<int> threatLv;	//{10, 5, 8, 7, 6}
-	int currentTurn;
-
-public:
-	Character() = default;
-	Character(string name, vector<int> TLV) : name(name), threatLv(TLV), currentTurn(0) {}
-	int GetCurrentThreat()
-	{
-		if (threatLv.size() <= currentTurn) return -1;		// -1을 리턴하면 에러를 의미 
-		return threatLv[currentTurn];		// 배열에 있는 값 반환하기 
-	}
-
-	void NextTurn()
-	{
-		currentTurn++;		// 다음 턴으로 넘어갈때마다 1씩 증가
-	}
-
-	void PrintStat()
-	{
-		cout << name << "(현재 위협도 : " << GetCurrentThreat() << ")" << endl;
-	}
-
-	
-};
-
-class Boss
-{
-public:
-	string name;
-	int currentTurn;
-	priority_queue<int> threatQ;
-	Boss(string name) : currentTurn(0) {}
-
-	void clear()
-	{
-		
-		while (!threatQ.empty())
-		{
-			threatQ.pop();
-		}
-	}
-
-	void UpdateThreatQ(vector<Character>& party)
-	{
-		clear();
-
-		for (auto& character : party)
-		{
-			int threat = character.GetCurrentThreat();
-			threatQ.push(threat);
-			character.NextTurn();
-		}
-	}
-
-	
-
-	int FindMostThreatCharacter(vector<Character>* party)
-	{
-		//Character* target = nullptr;
-		int MostThreatvalue = threatQ.top();
-
-		return MostThreatvalue;
-
-	}
-
-};
-
-void ThreatSystem()
-{
-	Character a("전사", { 1,2,3,4,5 });
-	Character b("궁수", { 1,8,3,6,5 });
-	Character c("법사", { 3,3,3,3,3 });
-	Character d("도적", { 2,4,6,8,10 });
-	Character e("성직자", { 1,3,5,7,9 });
-
-	vector<Character> party;
-	party.push_back(a);
-	party.push_back(b);
-	party.push_back(c);
-	party.push_back(d);
-	party.push_back(e);
-
-	// Boss가 가장 위협도가 높은 숫자를 찾기
-	Boss boss("고블린");
-	boss.UpdateThreatQ(party);
-	int value = boss.FindMostThreatCharacter(party);
-	cout << "첫번째 턴에서 위협도가 가장 큰 수치 : " << value << endl;
-
-	cout << endl;
-
-	boss.UpdateThreatQ(party);
-	int value = boss.FindMostThreatCharacter(party);
-	cout << "첫번째 턴에서 위협도가 가장 큰 수치 : " << value << endl;
-
-	for (auto& character: party)
-	{
-		character.PrintStat();
-	}
-
-	int nextTurnValue = 3;
-
-	int CurrentThreat = 0;
-	for (int i = 0; i < nextTurnValue; i++)
-	{
-		CurrentThreat += a.GetCurrentThreat();
-		a.NextTurn();
-	}
-
-	cout << "전사의 3번째 턴 후 위협도" << CurrentThreat << endl;
-	//a.PrintStat();
-}
-
-
 
 
 int main()
 {
-
+	ThreatSystem();
 	return 0;
 }

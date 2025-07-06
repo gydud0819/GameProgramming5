@@ -49,17 +49,15 @@ void LinearSearch(int arr[], int n, int target)	// target은 찾고자 하는 데이터
 
 }
 
-// 내가 벡터로 구현을 못하는 이유가 nums로 선언하고 나서 for문안에 일반 nums를 써야할지 nums.함수()를 써야하는지 그래서 헷갈리는거 같은데 될듯말듯하니까 답답하네 ㅇㅅㅇ
-// 이거 아닌거 같은데 
-void LinearSearch(vector<int>& nums, int arr[], int target)		// 선형 탐색을 벡터로도 구현하기 
+void LinearSearch(vector<int>& arr, int target)		// 선형 탐색을 벡터로도 구현하기 
 {
-	int n = nums.size();
+	int n = arr.size();
 
-	for (int i = 0; i < nums.size(); i++)
+	for (int i = 0; i < arr.size(); i++)
 	{
-		if (target == arr[i])
+		if (arr[i] == target)
 		{
-			cout << "해당하는 데이터 : " << nums.size() << "을(를) 찾았다." << endl;
+			cout << "해당하는 데이터 : " << arr.size() << "을(를) 찾았다." << endl;
 			return;
 		}
 	}
@@ -81,9 +79,12 @@ void BinarySearch(int arr[], int n, int target)
 	// int mid = left + (right - left) / 2;		왼쪽과 오른쪽거리를 /2 하고 더한다.
 	int i = 0;		// 왼쪽
 	int j = n - 1;	// 오른쪽
+
+	int mid;
+
 	while (i <= j)	// 왼쪽이 오른쪽보다 작거나 같을 때
 	{
-		int mid = i + (j - i) / 2;		// 루프를 돌 때마다 데이터를 찾을 때 까지 중앙값을 변경해준다. 
+		mid = i + (j - i) / 2;		// 루프를 돌 때마다 데이터를 찾을 때 까지 중앙값을 변경해준다. 
 		// mid와 target을 비교하기
 		
 		// target을 찾은 경우
@@ -105,6 +106,7 @@ void BinarySearch(int arr[], int n, int target)
 			i = mid + 1;
 		}
 	}
+	cout << "데이터를 찾지 못했습니다." << endl;
 }
 
 void BinarySearchRecursive(int arr[], int n, int target, int left, int right)		// 재귀함수로 만들면 문제풀때 
@@ -116,7 +118,8 @@ void BinarySearchRecursive(int arr[], int n, int target, int left, int right)		/
 		cout << "데이터를 찾지 못했다." << endl;
 		return;				// 반환한다. 
 	}
-	int mid = (left + right) / 2;
+	int mid = left + (right - left) / 2;
+
 	if (arr[mid] == target)
 	{
 		cout<< "해당하는 데이터 : " << target << "을(를) 찾았다." << endl;
@@ -134,13 +137,13 @@ void BinarySearchRecursive(int arr[], int n, int target, int left, int right)		/
 }
 
 // 내가 벡터로 구현을 못하는 이유가 nums로 선언하고 나서 for문안에 일반 nums를 써야할지 nums.함수()를 써야하는지 그래서 헷갈리는거 같은데 될듯말듯하니까 답답하네 ㅇㅅㅇ
-void BinarySearch(vector<int> nums, int n, int target, int left, int right)		// 벡터로 구현하기 
+void BinarySearch(vector<int> nums, int target)		// 벡터로 구현하기 
 {
-	int i = 0;		// 왼쪽
-	int j = n - 1;	// 오른쪽
-	while (i <= j)	// 왼쪽이 오른쪽보다 작거나 같을 때
+	int left = 0;
+	int right = nums.size() - 1;
+	while (left <= right)	// 왼쪽이 오른쪽보다 작거나 같을 때
 	{
-		int mid = i + (j - i) / 2;		// 루프를 돌 때마다 데이터를 찾을 때 까지 중앙값을 변경해준다. 
+		int mid = left + (right - left) / 2;		// 루프를 돌 때마다 데이터를 찾을 때 까지 중앙값을 변경해준다. 
 		// mid와 target을 비교하기
 
 		// target을 찾은 경우
@@ -153,17 +156,52 @@ void BinarySearch(vector<int> nums, int n, int target, int left, int right)		// 
 		else if (nums[mid] > target)
 		{
 			//mid의 기준으로 j 바꾸기
-			j = mid - 1;
+			right = mid - 1;
 		}
 		// target이 큰 경우
 		else	// (arr[mid] < target)
 		{
 			// 왼쪽 i가 mid를 기준으로 어떻게 바뀌면 될지 
-			i = mid + 1;
+			left = mid + 1;
 		}
 	}
+	cout << "데이터를 찾지 못했습니다." << endl;
 }
 #pragma endregion
+
+void Example()
+{
+	// pair :  데이터 하나를 표현하는 방식
+	// key, value 값을 구분해서 저장하는 방식 
+	// 연산자 오버로딩, 클래스를 비교하는 재정의 
+	vector<pair<int, string>> data;
+
+	data.push_back({ 1, "AAA" });
+	data.push_back({ 2, "BBB" });
+	data.push_back({ 3, "CCC" });
+	data.push_back({ 4, "DDD" });
+	data.push_back({ 5, "EEE" });
+
+	make_pair(1, "AAA");
+
+	// 선형 탐색 또는 이진 탐색을 이용하여 결과값 찾기
+
+	// 함수를 이용하게 되면 타입이 다르기 때문에 해당하는 타입으로 다시 만들어야 한다. 
+	vector<int> temp;
+	for (int i = 0; data.size(); i++)
+	{
+		temp.push_back(data[i].first);
+	}
+
+	//LinearSearch(temp, 4);		// 값이 존재 한다면
+	cout << "데이터가 존재한다 : (" << data[4].second << ")" << endl;
+
+	/*
+	* 1. 반환하는 값을 bool 타입으로 변경하기
+	* 2. LinearSearch(vector<int> -> vector<pair<int, string>>으로 바꿔보기
+	* 3. UserID를 사용해서 유저의 닉네임을 출력하는 코드 완성하기
+	*/
+}
 
 /*
 * pair<int, 클래스이름>
@@ -226,39 +264,7 @@ bool UserDataSearch(vector<pair<int, string>> data, int ID)
 	return false;
 }
 
-void Example()
-{
-	// pair :  데이터 하나를 표현하는 방식
-	// key, value 값을 구분해서 저장하는 방식 
-	// 연산자 오버로딩, 클래스를 비교하는 재정의 
-	vector<pair<int, string>> data;
 
-	data.push_back({ 1, "AAA" });
-	data.push_back({ 2, "BBB" });
-	data.push_back({ 3, "CCC" });
-	data.push_back({ 4, "DDD" });
-	data.push_back({ 5, "EEE" });
-
-	make_pair(1, "AAA");
-
-	// 선형 탐색 또는 이진 탐색을 이용하여 결과값 찾기
-
-	// 함수를 이용하게 되면 타입이 다르기 때문에 해당하는 타입으로 다시 만들어야 한다. 
-	vector<int> temp;
-	for (int i = 0; data.size(); i++)
-	{
-		temp.push_back(data[i].first);
-	}
-
-	//LinearSearch(temp, 4);		// 값이 존재 한다면
-	cout << "데이터가 존재한다 : (" << data[4].second << ")" << endl;
-
-	/*
-	* 1. 반환하는 값을 bool 타입으로 변경하기
-	* 2. LinearSearch(vector<int> -> vector<pair<int, string>>으로 바꿔보기
-	* 3. UserID를 사용해서 유저의 닉네임을 출력하는 코드 완성하기 
-	*/
-}
 
 int main()
 {
@@ -266,11 +272,9 @@ int main()
 	int arr[5] = { 44, 37, 2, 23, 31 };
 	LinearSearch(arr, 5, 31);
 
-	cout << endl;
-
 	cout << "벡터를 이용한 선형 탐색" << endl;
 	vector<int> data = { 44, 37, 2, 23, 31 };
-	//LinearSearch(data);
+	LinearSearch(data, 2);
 
 	cout << "배열을 이용한 재귀 함수 탐색" << endl;
 	int arr2[5] = { 44, 37, 2, 23, 31 };
@@ -278,7 +282,6 @@ int main()
 
 
 	cout << "배열을 이용한 이진 탐색" << endl;
-	//int arr2[5] = { 44, 37, 2, 23, 31 };
 	int arr3[5] = { 2, 23, 31, 37, 44 };
 	LinearSearch(arr3, 5, 2);
 
@@ -292,7 +295,7 @@ int main()
 
 	if (UserDataSearch(data3, 3))
 	{
-		data3[3].second = "NNN";
+		data3[2].second = "NNN";
 		// data[3] -> 변경하는 코드 작성하기
 		// 닉네임을 변경하고 비밀번호를 입력하고 해당 닉네임으로 로그인하는 것 만들기
 	}

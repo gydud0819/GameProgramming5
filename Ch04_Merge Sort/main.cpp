@@ -8,7 +8,7 @@
 
 int main()
 {
-	cout << "병합 정렬 예시" << endl;
+	cout << "병합 정렬 배열 버전 예시" << endl;
 	int arr[6] = { 5,3,1,6,9,8 };
 	MergeSort(arr, 6, 0, 5);
 	for (int i = 0; i < 6; i++)
@@ -20,4 +20,10 @@ int main()
 	cout << endl;
 
 	cout << "병합 정렬 벡터 예시" << endl;
+	vector<int> data = { 5, 2, 9, 1, 6, 7 };
+	MergeSort(data, 0, data.size() - 1);
+	for (int x : data)
+	{
+		cout << x << " ";
+	}
 }

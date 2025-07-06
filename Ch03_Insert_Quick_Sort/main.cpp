@@ -38,9 +38,6 @@ using namespace std;
 * 
 */
 
-/*
-
-*/
 void InsertSort(int arr[], int n)
 {
 	// 사이클이 몇번 돌아야 하는지
@@ -103,7 +100,9 @@ void InsertSort(vector<int>& nums)
 * 
 * 
 * 장점
-* - 
+* - 모든 경우에 위치 변경이 발생하는 것이 아니라, while 조건에 해당 할 때만 위치 변경(swap)이 발생한다.
+* - 컨테이너 데이터가 정렬되어 있을 수록 정렬 속도가 빠르다
+* 시간 복잡도 : n*logN
 * 
 * 언제 사용하는지
 * - data의 갯수가 10만개가 넘어갈 때 ex. 10만 x 10만 ~ 몇백억
@@ -126,18 +125,18 @@ void QuickSort(int data[], int start, int end)		// 재귀함수로 구현. 시작과 끝을 
 
 	while (i <= j)			// 왼쪽 인덱스를 오른쪽 인덱스가 추월했을 때까지 반복한다.
 	{
-		while (data[i] <= data[pivot]) // 피봇보다 큰 값을 만날 때 (i의 값을 변경해주는 코드), (작을때 i를 계속 증가하라는 의미) i <= end i가 end를 넘어 초과하면 터질 수 있기 때문에 넣어줘야함
+		while (i <= end && data[i] >= data[pivot]) // 피봇보다 큰 값을 만날 때 (i의 값을 변경해주는 코드), (작을때 i를 계속 증가하라는 의미) i <= end i가 end를 넘어 초과하면 터질 수 있기 때문에 넣어줘야함
 		{
 			i++;
 		}
 
-		while (j > start && data[j] >= data[pivot]) // 피봇보다 작은 값을 만날 때 (j의 값을 변경해주는 코드) (클때 i를 감소하라는 의미) j는 start보다 값이 커야한다.
+		while (j > start && data[j] <= data[pivot]) // 피봇보다 작은 값을 만날 때 (j의 값을 변경해주는 코드) (클때 i를 감소하라는 의미) j는 start보다 값이 커야한다.
 		{
 			j--;
 		}
 		
 		// i > j // 왼쪽 값이 오른쪽 값보다 크면 엇갈렸다.
-		if (i >= j)	// 엇갈리면 
+		if (i > j)	// 엇갈리면 
 		{
 			temp = data[j];
 			data[j] = data[pivot];
@@ -153,15 +152,11 @@ void QuickSort(int data[], int start, int end)		// 재귀함수로 구현. 시작과 끝을 
 		}
 		// 재귀 함수
 
+	}
 		// QuickSort(왼쪽 파트) QuickSort(오른쪽 파트)
-
 		QuickSort(data, start, j - 1);	// 왼쪽
 		QuickSort(data, j + 1, end);	// 오른쪽
-		
-		
-	}
 	
-
 }
 
 void _QuickSort(int data[], int start, int end)		// 내림 차순
@@ -173,7 +168,7 @@ void _QuickSort(int data[], int start, int end)		// 내림 차순
 
 	while (i <= j)			// 왼쪽 인덱스를 오른쪽 인덱스가 추월했을 때까지 반복한다.
 	{
-		while (data[i] >= data[pivot]) // 피봇보다 큰 값을 만날 때 (i의 값을 변경해주는 코드), (작을때 i를 계속 증가하라는 의미) i <= end i가 end를 넘어 초과하면 터질 수 있기 때문에 넣어줘야함
+		while (i <= end && data[i] >= data[pivot]) // 피봇보다 큰 값을 만날 때 (i의 값을 변경해주는 코드), (작을때 i를 계속 증가하라는 의미) i <= end i가 end를 넘어 초과하면 터질 수 있기 때문에 넣어줘야함
 		{
 			i++;
 		}
@@ -184,7 +179,7 @@ void _QuickSort(int data[], int start, int end)		// 내림 차순
 		}
 
 		// i > j // 왼쪽 값이 오른쪽 값보다 크면 엇갈렸다.
-		if (i <= j)	// 엇갈리면 
+		if (i > j)	// 엇갈리면 
 		{
 			temp = data[j];
 			data[j] = data[pivot];
@@ -202,9 +197,8 @@ void _QuickSort(int data[], int start, int end)		// 내림 차순
 
 		// QuickSort(왼쪽 파트) QuickSort(오른쪽 파트)
 
-		QuickSort(data, start, j - 1);	// 왼쪽
-		QuickSort(data, j + 1, end);	// 오른쪽
-
+		_QuickSort(data, start, j - 1);	// 왼쪽
+		_QuickSort(data, j + 1, end);	// 오른쪽
 
 	}
 }
@@ -212,50 +206,50 @@ void _QuickSort(int data[], int start, int end)		// 내림 차순
 
 void QuickSort(vector<int>& nums, int start, int end)	// 내림 차순으로 만들기
 {
-	//if (start >= end)
-	//{
-	//	return;
-	//}
+	if (start >= end)
+	{
+		return;
+	}
 
-	//int pivot = start;
-	//int i = start + 1;
-	//int j = end;
-	//int temp;
+	int pivot = start;
+	int i = start + 1;
+	int j = end;
+	int temp;
 
-	//while (i <= j)			// 왼쪽 인덱스를 오른쪽 인덱스가 추월했을 때까지 반복한다.
-	//{
-	//	while (i <= end && nums[i] <= nums[pivot]) // 피봇보다 큰 값을 만날 때 (i의 값을 변경해주는 코드), (작을때 i를 계속 증가하라는 의미) i <= end i가 end를 넘어 초과하면 터질 수 있기 때문에 넣어줘야함
-	//	{
-	//		i++;
-	//	}
+	while (i <= j)			// 왼쪽 인덱스를 오른쪽 인덱스가 추월했을 때까지 반복한다.
+	{
+		while (i <= end && nums[i] >= nums[pivot]) // 피봇보다 큰 값을 만날 때 (i의 값을 변경해주는 코드), (작을때 i를 계속 증가하라는 의미) i <= end i가 end를 넘어 초과하면 터질 수 있기 때문에 넣어줘야함
+		{
+			i++;
+		}
 
-	//	while (j > start && nums[j] >= nums[pivot]) // 피봇보다 작은 값을 만날 때 (j의 값을 변경해주는 코드) (클때 i를 감소하라는 의미) j는 start보다 값이 커야한다.
-	//	{
-	//		j--;
-	//	}
+		while (j > start && nums[j] <= nums[pivot]) // 피봇보다 작은 값을 만날 때 (j의 값을 변경해주는 코드) (클때 i를 감소하라는 의미) j는 start보다 값이 커야한다.
+		{
+			j--;
+		}
 
-	//	// i > j // 왼쪽 값이 오른쪽 값보다 크면 엇갈렸다.
-	//	if (i >= j)	// 엇갈리면 
-	//	{
-	//		temp = nums[j];
-	//		nums[j] = nums[pivot];
-	//		nums[pivot] = temp;
+		// i > j // 왼쪽 값이 오른쪽 값보다 크면 엇갈렸다.
+		if (i > j)	// 엇갈리면 
+		{
+			temp = nums[j];
+			nums[j] = nums[pivot];
+			nums[pivot] = temp;
 
-	//		//swap(data[j], data[pivot]);;
-	//	}
-	//	else
-	//	{
-	//		temp = nums[j];
-	//		nums[j] = nums[i];
-	//		nums[i] = temp;
-	//	}
-	//	// 재귀 함수
+			//swap(data[j], data[pivot]);;
+		}
+		else
+		{
+			temp = nums[i];
+			nums[i] = nums[j];
+			nums[j] = temp;
+		}
+		// 재귀 함수
 
-	//	// QuickSort(왼쪽 파트) QuickSort(오른쪽 파트)
+	}
+		// QuickSort(왼쪽 파트) QuickSort(오른쪽 파트)
 
-	//	QuickSort(nums, start, j - 1);	// 왼쪽
-	//	QuickSort(nums, j + 1, end);	// 오른쪽
-	//}
+		QuickSort(nums, start, j - 1);	// 왼쪽
+		QuickSort(nums, j + 1, end);	// 오른쪽
 }
 #pragma endregion
 
@@ -290,18 +284,18 @@ int main()
 		cout << " " << num;
 	}
 
-	//cout << endl;
-	//cout << endl;
+	cout << endl;
+	cout << endl;
 
-	//cout << "퀵 정렬 배열 형식" << endl;
-	//int arr2[10] = { 3, 6, 9, 1, 7, 5, 8, 4, 10, 2 };
-	//QuickSort(arr2,0, 9);
+	cout << "퀵 정렬 배열 형식" << endl;
+	int arr2[10] = { 3, 6, 9, 1, 7, 5, 8, 4, 10, 2 };
+	QuickSort(arr2,0, 9);
 
-	//for (int i = 0; i < 10; i++)
-	//{
-	//	cout << " " << arr2[i];
-	//}
-	//
+	for (int i = 0; i < 10; i++)
+	{
+		cout << " " << arr2[i];
+	}
+	
 
 	cout << endl;
 	cout << endl;
@@ -315,16 +309,16 @@ int main()
 		cout << " " << arr3[i];
 	}
 
-	//cout << endl;
-	//cout << endl;
+	cout << endl;
+	cout << endl;
 
-	/*cout << "퀵 정렬 벡터 형식" << endl;
-	vector<int> nums2 = { 3, 6, 9, 1, 7, 5, 8, 4, 10, 2 };
+	cout << "퀵 정렬 벡터 형식" << endl;
+	vector<int> data = { 3, 6, 9, 1, 7, 5, 8, 4, 10, 2 };
 
-	QuickSort(nums1, 0, nums2.size()-1);
+	QuickSort(data, 0, data.size()-1);
 
-	for (int num : nums2)
+	for (int num : data)
 	{
 		cout << " " << num;
-	}*/
+	}
 }

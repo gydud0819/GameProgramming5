@@ -109,10 +109,10 @@ private:
 		// 방문한 visited를 true로 변환하기
 		// 재귀 함수 방식을 사용하지 않고 반복문을 사용해서 표현하기
 		stack<int> stack;		// stack을 사용한 깊이 우선 탐색 
-		visited[v] = true;
+		
 		// push - pop 함수 사용하기
 		stack.push(v);
-		cout << v << " ";
+	
 		// while(empty()) 사용하기
 		while (!stack.empty())
 		{
@@ -127,7 +127,7 @@ private:
 			if (visited[Cvertex] == false)
 			{
 				visited[Cvertex] = true;
-				cout << v << " ";
+				cout << Cvertex << " ";
 			}
 
 			// 이웃 노드
@@ -139,7 +139,6 @@ private:
 					stack.push(neighbor);
 				}
 			}
-
 
 		}
 	}
@@ -166,7 +165,6 @@ private:
 
 				}
 
-
 			}
 		}
 	}
@@ -184,7 +182,7 @@ private:
 		// 2. BFS 반복방식 코드 가져오기 
 		for (auto& e : adj[c])
 		{
-			if (visited[e] == false)
+			if (!visited[e])
 			{
 				visited[e] = true;
 				q.push(e);
@@ -216,7 +214,7 @@ public:
 		adj[v].push_back(u);		// v가 1, u가 2		1번 점에 연결된 값 : 1
 	}
 
-	void printEdge()
+	void PrintGraph()
 	{
 		for (int i = 0; i < V; i++)
 		{
@@ -318,7 +316,7 @@ int main()
 	cout << endl;
 	graph.BFSIterTraverse(0);
 	cout << endl;
-	graph.printEdge();
+	graph.PrintGraph();
 
 	cout << endl;
 

@@ -42,7 +42,7 @@ using namespace std;
 /*
 * BST 바이너리 서치 트리 = 이진 탐색 트리
 * - 자기 자신과, 왼쪽, 오른쪽을 저장하는 노드를 가지고 있음
-* - Node를 기준으로 왼쪽과 오른쪽 값을 비교할 수 있ㄸ.
+* - Node를 기준으로 왼쪽과 오른쪽 값을 비교할 수 있다
 * - 작은값을 왼쪽 큰값을 오른쪽으로 저장하면 규칙성을 갖는다
 * - 특정한 규칙을 갖는 클래스를 만들어서 데이터 출력하기
 */
@@ -225,13 +225,13 @@ private:
 				{
 					temp = node;			// 지우고 싶은 노드를 임시로 저장 (지워야할 메모리르 가리키고 있다.)
 					node = nullptr;			// 지우고 싶은 노드를 null을 가리키도록 수정한다. 
-					delete = temp;			// 임시 보관한 주소 지우기 
+					delete temp;			// 임시 보관한 주소 지우기 
 				}
 				else
 				{
 					Node* nodeTodelete = node;
 					node = temp;			// 하나만 있는 자식(temp)를 지워야할 노드위치로 이동한다.
-					delete = nodeTodelete;	// 지워야할 노드 == 메모리를 삭제한다. 
+					delete nodeTodelete;	// 지워야할 노드 == 메모리를 삭제한다. 
 				}
 			}
 			else	// 자식이 2개인 경우 
@@ -295,17 +295,19 @@ int main()
 
 	BST bst;
 	bst.insert(4);
-	bst.insert(1);
+	bst.insert(2);
 	bst.insert(6);
-	bst.insert(3);
+
+	cout << "\n이진 검색 트리 데이터 입력 예시\n";
+	bst.inorder();
 	bst.insert(9);
 	bst.insert(7);
-
+	bst.insert(1);
+	cout << "\n이진 검색 트리 데이터 입력 예시\n";
 	bst.inorder();
 
-	cout << "데이터 1 삭제 후 결과" << endl;
-	bst.DeleteNode(4);
-	bst.ReturnRoot();
+	cout << "데이터 6 삭제 후 결과" << endl;
+	bst.DeleteNode(6);
 	bst.inorder();
 
 

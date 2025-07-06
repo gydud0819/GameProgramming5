@@ -165,12 +165,13 @@ private:
 						processed[neighbor] = true;
 					}
 				}
+
+				if (!nextLevel.empty())
+				{
+					levels.push_back(nextLevel);
+				}
+				currentLevel++;			// 다음 층 계산하도록 
 			}
-			if (!nextLevel.empty())
-			{
-				levels.push_back(nextLevel);
-			}
-			currentLevel++;			// 다음 층 계산하도록 
 		}
 
 		// 모든 층의 레벨을 계산 했다면 각 노드가 몇 층에 있고 몇번째에 있는지 위 코드를 통해 기록이 된다.
@@ -183,7 +184,7 @@ private:
 			{
 				int nodeId = levels[level][i];
 				nodes[nodeId].x = spacing * (i + 1);			// i가 0부터 시작하기 때문에 1을 더해서 계산한다.
-				nodes[nodeId].y =level * 2 + 2;					// 각 층의 여백 크기를 설정한다. (x,y 좌표를 설정)
+				nodes[nodeId].y = level * 2 + 2;					// 각 층의 여백 크기를 설정한다. (x,y 좌표를 설정)
 
 			}
 		}
@@ -194,7 +195,7 @@ private:
 		screen[y][x] = '0';
 	}
 
-	void DrawLine(vector<vector<char>>& screen, int x1, int x2, int y1, int y2)		// 정수 사이의 픽셀을 그리는 알고리즘		Bresenham 찾아보기 
+	void DrawLine(vector<vector<char>>& screen, int x1, int y1, int x2, int y2)		// 정수 사이의 픽셀을 그리는 알고리즘		Bresenham 찾아보기 
 	{
 		int dx = abs(x2 - x1);
 		int dy = abs(y2 - y1);
@@ -220,6 +221,7 @@ private:
 				{
 					break;
 				}
+
 				int e2 = 2 * err;
 				if (e2 > -dy)
 				{
@@ -227,9 +229,9 @@ private:
 					x += sx;
 
 				}
-				if (e2 < -dy)
+				if (e2 < dx)
 				{
-					err += dy;
+					err += dx;
 					y += sy;
 
 				}
@@ -266,6 +268,7 @@ private:
 			{
 				cout << screen[y][x];
 			}
+			cout << endl;
 		}
 		cout << endl;
 	}
@@ -274,6 +277,7 @@ public:
 	void DrawGraph()
 	{
 		vector<vector<char>> screen(CONSOLEHEIGHT, vector<char>(CONSOLEWIDTH, ' '));
+		
 		CalculateNodePos();
 		DrawEdge(screen);				// 선을 먼저 그리고
 		DrawNode(screen);				// 선 위에 점을 찍는다. 
@@ -293,18 +297,18 @@ int main()
 	spire.AddNode("1층 전투방");		// 3
 	spire.AddNode("1층 전투방");		// 4
 	spire.AddNode("1층 전투방");		// 5
-
+	
 	spire.AddNode("2층 엘리트방");	// 6
 	spire.AddNode("2층 전투방");		// 7
 	spire.AddNode("2층 전투방");		// 8
 	spire.AddNode("2층 이벤트");		// 9
 	spire.AddNode("2층 휴식");		// 10
-
+	
 	spire.AddNode("3층 휴식");
 	spire.AddNode("3층 이벤트");
 	spire.AddNode("3층 휴식");
 	spire.AddNode("3층 이벤트");
-
+	
 	spire.AddNode("4층 휴식");
 	spire.AddNode("5층 보스");
 
@@ -327,7 +331,7 @@ int main()
 
 	spire.DrawGraph();
 
-	vector<int> temp = spire.FindShortTestPath(0, 13);
+	vector<int> temp = spire.FindShortTestPath(0, 16);
 
 	for (auto& e : temp)
 	{

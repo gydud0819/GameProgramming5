@@ -166,8 +166,9 @@ public:
 
 		while (!q.empty())	// 데이터가 아무것도 없을때까지 while로 계속 돌린다. q 데이터가있을때만 돌린다 
 		{
-			Node* currentNode = nullptr;
+			Node* currentNode = q.front();
 			q.pop();
+
 			if (!currentNode->leftnode)		// 현재 노드에 데이터가 없으면 왼쪽 노드에 넣기						// 171번째에서 예외 발생
 			{
 				currentNode->leftnode = newNode;		// 현재 노드의 왼쪽 자식에 새로운 데이터 넣는다. 
@@ -175,6 +176,7 @@ public:
 				break;
 			}
 
+			// 왼쪽에 데이터가 있으면
 			if (!currentNode->rightnode)	// 왼쪽과 마찬가지로 오른쪽 노드에 데이터가 없을 때 오른쪽 노드에 데이터 넣기
 			{
 				currentNode->rightnode = newNode;
@@ -243,7 +245,7 @@ public:
 		// heap 으로 저장한 자료구조를 vector로 변환하기
 		// while queue 자료형을 사용해서 데이터를 탐색하는 형태의 코드 작성하기
 
-		if (root = nullptr) return result;
+		if (!root) return result;
 		
 		queue<Node*> q;
 		q.push(root);
@@ -338,14 +340,14 @@ int main()
 	cout << "가장 큰 수를 반환하고 다시 Heap 정렬을 하는 예제" << endl;
 	int maxValue = mheap.exractMax();		// 1번째로 큰 수
 	int k = 2;	// 2번째로 큰수 
-	int kitValue;
+	int kthValue;
 	for (int i = 0; i < 2; i++)
 	{
-		kitValue = mheap.exractMax();		// 2번째로 큰 수가 kitValue 저장된다.
+		kthValue = mheap.exractMax();		// 2번째로 큰 수가 kitValue 저장된다.
 	}
 
 	// k번쨰로 큰 수 찾기 
-
+	cout << "k번째로 큰 수는 : " << kthValue << std::endl;
 
 	return 0;
 }

@@ -33,11 +33,11 @@ using namespace std;
 
 int Fibonacci(int n)
 {
-	if(n==1)
-		return 1;
+	if(n==0)
+		return 0;
 
-	if (n == 2)
-		return 2;
+	if (n == 1)
+		return 1;
 
 	// 반복문 또는 재귀함수로 표현할 수 있음 
 	return Fibonacci(n - 1) + Fibonacci(n - 2);
@@ -60,7 +60,7 @@ int FinoDP(int n)		// bottom - up (반복문, 컨테이너)
 {
 	if (n <= 1) { return n; }
 	
-	//vector<int> vec;
+	vector<int> vec;
 
 	// 임시 저장할 컨테이너 만들기
 	vector<int> dp(n + 1, 0);	// 생성자로 표현, n개의 빈 공간이 있는 배열을 만들어서 생성한다.
@@ -98,7 +98,7 @@ public:
 		{
 			return dp[n];
 		}
-			dp[n] = FiboRecur(n - 1) + FiboRecur(n - 2);
+		dp[n] = FiboRecur(n - 1) + FiboRecur(n - 2);
 			
 			return dp[n];
 	}
@@ -184,7 +184,7 @@ public:
 int CountStep(int n)
 {
 	return n;
-	vector<int> dp(n + 1, 0);		// n+1 하는 이유 : dp[6] 0부터 시작했을 때 2번째 데이터를 사용해야한다.
+	vector<int> dp(n + 1, -1);		// n+1 하는 이유 : dp[6] 0부터 시작했을 때 2번째 데이터를 사용해야한다.
 	dp[0] = 0;
 	dp[1] = 1;
 

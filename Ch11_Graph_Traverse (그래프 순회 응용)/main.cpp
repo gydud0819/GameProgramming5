@@ -1,5 +1,5 @@
 /*
-* 작성일	:
+* 작성일	: 2025-06-26
 * 주제	: 그래프를 이용한 노드의 최단 거리 구하기 
 */
 #include <iostream>
@@ -45,10 +45,10 @@ private:
 		// 방문한 visited를 true로 변환하기
 		// 재귀 함수 방식을 사용하지 않고 반복문을 사용해서 표현하기
 		stack<int> stack;		// stack을 사용한 깊이 우선 탐색 
-		visited[v] = true;
+		//visited[v] = true;
 		// push - pop 함수 사용하기
 		stack.push(v);
-		cout << v << " ";
+		//cout << v << " ";
 		// while(empty()) 사용하기
 		while (!stack.empty())
 		{
@@ -102,7 +102,6 @@ private:
 
 				}
 
-
 			}
 		}
 	}
@@ -120,7 +119,7 @@ private:
 		// 2. BFS 반복방식 코드 가져오기 
 		for (auto& e : adj[c])
 		{
-			if (visited[e] == false)
+			if (!visited[e])
 			{
 				visited[e] = true;
 				q.push(e);
@@ -152,7 +151,7 @@ public:
 		adj[v].push_back(u);		// v가 1, u가 2		1번 점에 연결된 값 : 1
 	}
 
-	void printEdge()
+	void PrintGraph()
 	{
 		for (int i = 0; i < V; i++)
 		{
@@ -253,10 +252,6 @@ public:
 	* 프림 :
 	*/
 
-	/*
-	*
-	*/
-
 	vector<int> ReFindPath(vector<int>& parent, int start, int end)		// 길을 삭제 하는 함수
 	{
 		vector<int> path;
@@ -275,6 +270,7 @@ public:
 
 		return path;
 	}
+
 	vector<int> FindShortTestPath(int start, int end)		// 최단 거리 순서, 목적지가 반드시 있어야 함 
 	{
 		if (start == end) return { start };
