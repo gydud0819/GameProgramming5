@@ -1,9 +1,12 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\DPC\\Desktop\\GameProgramming5\\Ch01_Game_Algorithm\\",
+  "WorkspaceRootPath": "C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch01_Game_Algorithm\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C8228941-D6D6-41A6-B996-235F62F5DB68}|..\\Ch03_Insert_Quick_Sort\\Ch03_Insert_Quick_Sort.vcxproj|C:\\Users\\DPC\\Desktop\\GameProgramming5\\Ch03_Insert_Quick_Sort\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{BA910CA6-814C-495C-8818-68E75D5C94E5}|..\\Ch17 Collision\\Ch17 Collision.vcxproj|C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch17 Collision\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{242149FB-B436-4580-9005-DD13E477A802}|..\\Ch16_GameUI\\Ch16_GameUI.vcxproj|C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch16_GameUI\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -13,19 +16,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "main.cpp",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch16_GameUI\\main.cpp",
+              "RelativeDocumentMoniker": "..\\Ch16_GameUI\\main.cpp",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch16_GameUI\\main.cpp",
+              "RelativeToolTip": "..\\Ch16_GameUI\\main.cpp",
+              "ViewState": "AgIAAJMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-07-07T07:37:46.1Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "main.cpp",
-              "DocumentMoniker": "C:\\Users\\DPC\\Desktop\\GameProgramming5\\Ch03_Insert_Quick_Sort\\main.cpp",
-              "RelativeDocumentMoniker": "..\\Ch03_Insert_Quick_Sort\\main.cpp",
-              "ToolTip": "C:\\Users\\DPC\\Desktop\\GameProgramming5\\Ch03_Insert_Quick_Sort\\main.cpp",
-              "RelativeToolTip": "..\\Ch03_Insert_Quick_Sort\\main.cpp",
-              "ViewState": "AgIAACQBAAAAAAAAAAAAwDkBAAAAAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch17 Collision\\main.cpp",
+              "RelativeDocumentMoniker": "..\\Ch17 Collision\\main.cpp",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\GameProgramming5\\Ch17 Collision\\main.cpp",
+              "RelativeToolTip": "..\\Ch17 Collision\\main.cpp",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAAFIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-07-06T11:37:23.589Z",
+              "WhenOpened": "2025-07-07T07:03:03.599Z",
               "EditorCaption": ""
             }
           ]
